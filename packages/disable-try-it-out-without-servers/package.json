@@ -1,6 +1,6 @@
 {
   "name": "swagger-ui-plugin-disable-try-it-out-without-servers",
-  "version": "0.0.1-alpha.1",
+  "version": "0.0.1-alpha.2",
   "description": "Disable Swagger UI's Try-It-Out feature when your definition lacks remote server information",
   "author": "Kyle Shockey <kyleshockey@gmail.com>",
   "homepage": "https://github.com/shockey/swagger-ui-plugins#readme",
