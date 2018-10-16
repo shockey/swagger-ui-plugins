@@ -36,9 +36,9 @@ SwaggerUI({
 
 ```html
 <!-- Load Swagger UI -->
-<script src="https://unpkg.com/swagger-ui-dist@3.19.3/swagger-ui-bundle.js"> </script> 
+<script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"> </script> 
 <!-- Load the DisableTryItOutWithoutServersPlugin -->
-<script src="https://unpkg.com/swagger-ui-plugin-disable-try-it-out-without-servers@0.0.1-alpha.2/build/index.js"> </script>
+<script src="https://unpkg.com/swagger-ui-plugin-disable-try-it-out-without-servers/build/index.js"> </script>
 
 <script>
 window.onload = function() {
