@@ -52,7 +52,7 @@ window.onload = function() {
 </script>
 ```
 
-### TODO
+# TODO
 
 - Handle non-global `servers` data
 - Implement similar logic for Swagger 2.0 definitions
