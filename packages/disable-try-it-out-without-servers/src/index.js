@@ -38,7 +38,6 @@
         spec: {
           wrapSelectors: {
             allowTryItOutFor: (ori) => (...args) => {
-              console.log("yo yo")
               if (!system.specSelectors.isOAS3()) {
                 // If we aren't looking at an OAS3 definition, allow it
                 return ori(...args)
