@@ -1,0 +1,28 @@
+{
+  "name": "swagger-ui-plugin-disable-try-it-out-without-servers",
+  "version": "0.0.0",
+  "description": "Disable Swagger UI's Try-It-Out feature when your definition lacks remote server information",
+  "author": "Kyle Shockey <kyleshockey@gmail.com>",
+  "homepage": "https://github.com/shockey/swagger-ui-plugins#readme",
+  "license": "ISC",
+  "main": "build/index.js",
+  "directories": {
+    "build": "build",
+    "test": "__tests__"
+  },
+  "files": [
+    "build"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shockey/swagger-ui-plugins.git"
+  },
+  "scripts": {
+    "build": "babel src -d build",
+    "prepublish": "npm run build",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/shockey/swagger-ui-plugins/issues"
+  }
+}
