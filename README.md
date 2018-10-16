@@ -2,7 +2,9 @@
 
 A multi-package repository of useful Swagger UI plugins maintained by [@shockey](https://github.com/shockey).
 
-Take a look inside the [`packages`](https://github.com/shockey/swagger-ui-plugins/tree/master/packages) folder for each plugin's source code.
+## Available Plugins
+
+- [`disable-try-it-out-without-servers`](https://github.com/shockey/swagger-ui-plugins/tree/master/packages/disable-try-it-out-without-servers): enter documentation-only mode when OAS 3.0 `servers` is empty or missing
 
 ## Built With
 
