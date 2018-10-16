@@ -22,7 +22,9 @@ Please add yourself to the Contributors list below if you add a new plugin!
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+Each plugin uses [SemVer](http://semver.org/) for versioning. 
+
+A plugin's version is unrelated to its Swagger UI compatibility: compatible versions are indicated by the plugin's Swagger UI `peerDependency`.
 
 ## Contributors
 
