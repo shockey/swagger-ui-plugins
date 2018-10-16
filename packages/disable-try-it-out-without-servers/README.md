@@ -1,4 +1,4 @@
-# `swagger-ui-plugin-disable-try-it-out-without-servers`
+# `DisableTryItOutWithoutServersPlugin`
 
 By default, if you don't provide any remote server information in your OpenAPI definiton, Swagger UI will direct requests to the host the definition was loaded from:
 
@@ -13,6 +13,13 @@ If Swagger UI has a non-OpenAPI 3 definition loaded, this plugin will not affect
 ## Usage
 
 ### Require
+
+First, install the module with npm:
+```
+$ npm install --save swagger-ui-plugin-disable-try-it-out-without-servers
+```
+
+Next, require it in your client-side application:
 
 ```js
 const DisableTryItOutWithoutServersPlugin = require('swagger-ui-plugin-disable-try-it-out-without-servers');
@@ -49,3 +56,4 @@ window.onload = function() {
 
 - Handle non-global `servers` data
 - Implement similar logic for Swagger 2.0 definitions
+- Write Jsest unit tests + Cypress integration tests
