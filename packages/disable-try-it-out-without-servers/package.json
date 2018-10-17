@@ -4,7 +4,7 @@
   "description": "Disable Swagger UI's Try-It-Out feature when your definition lacks remote server information",
   "author": "Kyle Shockey <kyleshockey@gmail.com>",
   "homepage": "https://github.com/shockey/swagger-ui-plugins#readme",
-  "license": "ISC",
+  "license": "MIT",
   "main": "build/index.js",
   "directories": {
     "build": "build",
