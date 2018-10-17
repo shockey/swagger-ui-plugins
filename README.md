@@ -6,12 +6,6 @@ A multi-package repository of useful Swagger UI plugins maintained by [@shockey]
 
 - [`disable-try-it-out-without-servers`](https://github.com/shockey/swagger-ui-plugins/tree/master/packages/disable-try-it-out-without-servers): enter documentation-only mode when OAS 3.0 `servers` is empty or missing
 
-## Built With
-
-* [Lerna](https://lernajs.io) - a tool for managing JavaScript projects with multiple packages
-* [Babel](https://babeljs.io) - a JavaScript compiler
-* [Cypress](https://www.cypress.io) - fast, easy & reliable testing for anything that runs in a browser
-
 ## Contributing
 
 Feel free to open issues and pull requests that fix bugs, add functionality, and introduce new plugins.
@@ -29,6 +23,12 @@ A plugin's version is unrelated to its Swagger UI compatibility: compatible vers
 ## Contributors
 
 * **Kyle Shockey**: *Initial work; plugin maintenance*
+
+## Built With
+
+* [Lerna](https://lernajs.io) - a tool for managing JavaScript projects with multiple packages
+* [Babel](https://babeljs.io) - a JavaScript compiler
+* [Cypress](https://www.cypress.io) - fast, easy & reliable testing for anything that runs in a browser
 
 ## License
 
