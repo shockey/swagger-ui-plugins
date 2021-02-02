@@ -1,0 +1,33 @@
+{
+  "name": "swagger-ui-plugin-hide-empty-tags",
+  "version": "1.0.0",
+  "description": "Hide empty tags",
+  "author": "Kyle Shockey <kyleshockey@gmail.com>",
+  "homepage": "https://github.com/shockey/swagger-ui-plugins#readme",
+  "license": "MIT",
+  "main": "build/index.js",
+  "directories": {
+    "build": "build",
+    "test": "__tests__"
+  },
+  "files": [
+    "build"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shockey/swagger-ui-plugins.git"
+  },
+  "scripts": {
+    "build": "npx babel src -d build",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/shockey/swagger-ui-plugins/issues"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11"
+  }
+}
