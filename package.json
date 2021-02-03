@@ -8,5 +8,8 @@
     "@babel/preset-env": "^7.1.0",
     "babel-plugin-add-module-exports": "^1.0.0",
     "lerna": "^3.4.3"
+  },
+  "scripts": {
+    "new-plugin": "./scripts/new-plugin.sh"
   }
 }
