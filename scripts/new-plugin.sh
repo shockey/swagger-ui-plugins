@@ -96,7 +96,7 @@ PLUGIN_PROPER_NAME="$(echo "$PLUGIN_NAME" | sed 's/ +/ /g' | sed 's/.*/\L&/; s/[
 PLUGIN_KEBAB_CASE="$(echo "$PLUGIN_PROPER_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9 ]//g' | sed  -r 's/ +/-/g')"
 PLUGIN_PASCAL_CASE="$(echo "$PLUGIN_PROPER_NAME" | sed 's/[^a-zA-Z0-9 ]//g' | sed -r 's/ +//g')"
 
-cp -R packages/_boilerplate "packages/${PLUGIN_KEBAB_CASE}"
+cp -R packages/.boilerplate "packages/${PLUGIN_KEBAB_CASE}"
 
 # Mac requires a backup string, which we're providing as "empty" here
 if command -v lsb_release &>/dev/null; then
@@ -113,9 +113,9 @@ $sed s/'{short-desc}'/"$PLUGIN_SHORT_DESC"/g $(find packages/${PLUGIN_KEBAB_CASE
 
 readme="packages/${PLUGIN_KEBAB_CASE}/README.md"
 n="$(grep -n "{long-desc}" "$readme" | sed -r 's/^([0-9]+).*$/\1/g')"
-one="$(head -n$n "$readme")"
+one="$(head -n$((n-1)) "$readme")"
 two="$(tail -n "+$((n+1))" "$readme")"
-echo "$one\n$PLUGIN_LONG_DESC\n$two" > "$readme"
+echo "$one"$'\n'"$PLUGIN_LONG_DESC"$'\n'"$two" > "$readme"
 
 while read f; do
   NEW_NAME="$(echo "$f" | sed s/'{name-kebab-case}'/"$PLUGIN_KEBAB_CASE"/g)"
