@@ -14,6 +14,10 @@ I will make releases of each plugin when/if your PR is accepted.
 
 Please add yourself to the Contributors list below if you add a new plugin!
 
+You can use the `npm run new-plugin` command to easily generate a new plugin skeleton from boilerplate. This should give you at least a reasonable head start on your plugin in a way that is generally compatible with the conventions in this library.
+
+**One easy way to contribute is to copy over plugins found at https://github.com/swagger-api/swagger-ui/issues/5027#issuecomment-438745785.**
+
 ## Versioning
 
 Each plugin uses [SemVer](http://semver.org/) for versioning. 
@@ -23,6 +27,7 @@ A plugin's version is unrelated to its Swagger UI compatibility: compatible vers
 ## Contributors
 
 * **Kyle Shockey**: *Initial work; plugin maintenance*
+* **Kael Shipman**: *Plugin boilerplate and script; limited ports of other people's plugins from around the web.*
 
 ## Built With
 
