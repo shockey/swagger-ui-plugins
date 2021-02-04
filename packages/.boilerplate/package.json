@@ -18,7 +18,8 @@
     "url": "git+https://github.com/shockey/swagger-ui-plugins.git"
   },
   "scripts": {
-    "build": "npx babel src -d build",
+    "start": "npx http-server example/",
+    "build": "npx babel src -d build && cp build/index.js example/plugin.js",
     "prepublishOnly": "npm run build",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },

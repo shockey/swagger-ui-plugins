@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- Load React (if necessary) -->
+    <!-- <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>-->
+
+    <!-- Load Swagger UI -->
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css"></link>
+    <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script> 
+
+    <!-- Load your plugin -->
+    <script src="./plugin.js"></script>
+
+    <!-- Set it up on-load -->
+    <script>
+      window.onload = function() {
+        window.ui = SwaggerUIBundle({
+          url: "https://petstore.swagger.io/v2/swagger.json",
+          dom_id: "#swagger-ui",
+          presets: [
+            SwaggerUIBundle.presets.apis,
+            SwaggerUIBundle.SwaggerUIStandalonePreset
+          ],
+          plugins: [
+            {name-pascal-case}Plugin
+          ]
+        });
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="swagger-ui"></div>
+  </body>
+</html>
+
