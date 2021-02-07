@@ -80,7 +80,7 @@ while true; do
   echo "$(bold "Short Description:") $PLUGIN_SHORT_DESC"
   echo "$(bold "Long Description:") $PLUGIN_LONG_DESC"
   echo
-  read -p "Does that look rigth? (Y,n) " ANS
+  read -p "Does that look right? (Y/n) " ANS
   ANS="$(echo "$ANS" | tr '[:upper:]' '[:lower:]')"
   if [ "$ANS" == "n" ]; then
     echo "Ok, let's try again"
@@ -123,4 +123,3 @@ while read f; do
 done < <(find "packages/${PLUGIN_KEBAB_CASE}" -name '*{name-kebab-case}*')
 
 SUCCESS=1
-
