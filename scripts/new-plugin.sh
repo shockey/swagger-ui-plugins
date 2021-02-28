@@ -126,18 +126,12 @@ done
 
 cp -R packages/.boilerplate "packages/${PLUGIN_KEBAB_CASE}"
 
-# Mac requires a backup string, which we're providing as "empty" here
-if command -v lsb_release &>/dev/null; then
-  sed="sed -i"
-else
-  sed="sed -i ''"
-fi
-
-$sed s/'{author}'/"$PLUGIN_AUTHOR"/g $(find packages/${PLUGIN_KEBAB_CASE} -type f)
-$sed s/'{proper-name}'/"$PLUGIN_PROPER_NAME"/g $(find packages/${PLUGIN_KEBAB_CASE} -type f)
-$sed s/'{name-kebab-case}'/"$PLUGIN_KEBAB_CASE"/g $(find packages/${PLUGIN_KEBAB_CASE} -type f)
-$sed s/'{name-pascal-case}'/"$PLUGIN_PASCAL_CASE"/g $(find packages/${PLUGIN_KEBAB_CASE} -type f)
-$sed s/'{short-desc}'/"$PLUGIN_SHORT_DESC"/g $(find packages/${PLUGIN_KEBAB_CASE} -type f)
+sed -i'.delete' s/'{author}'/"$PLUGIN_AUTHOR"/g $(find packages/${PLUGIN_KEBAB_CASE} -type f)
+sed -i'.delete' s/'{proper-name}'/"$PLUGIN_PROPER_NAME"/g $(find packages/${PLUGIN_KEBAB_CASE} -type f)
+sed -i'.delete' s/'{name-kebab-case}'/"$PLUGIN_KEBAB_CASE"/g $(find packages/${PLUGIN_KEBAB_CASE} -type f)
+sed -i'.delete' s/'{name-pascal-case}'/"$PLUGIN_PASCAL_CASE"/g $(find packages/${PLUGIN_KEBAB_CASE} -type f)
+sed -i'.delete' s/'{short-desc}'/"$PLUGIN_SHORT_DESC"/g $(find packages/${PLUGIN_KEBAB_CASE} -type f)
+find "packages/${PLUGIN_KEBAB_CASE}" -name '*.delete' -delete
 
 while read f; do
   NEW_NAME="$(echo "$f" | sed s/'{name-kebab-case}'/"$PLUGIN_KEBAB_CASE"/g)"
