@@ -1,6 +1,8 @@
 Swagger UI 'Hierarchical Tags' Plugin
 ==================================================================
-This plugin produces a side-bar layout with endpoints grouped into a hierarhical list based on tags with (optional) special delimiter characters to denote hierarchy.
+
+This plugin produces a layout with endpoints grouped into a hierarhical list based on tags with
+(optional) special delimiter characters to denote hierarchy. Delimiter characters are `|` and `:`.
 
 ## Usage
 
