@@ -184,10 +184,11 @@ export class HierarchicalOperationTag extends React.Component {
       getConfigs,
       getComponent,
       specSelectors,
+      isRoot,
     } = this.props;
 
     return (
-      <div className="hierarchical-operation-tags">
+      <div className="hierarchical-operation-tags" style={isRoot ? null : {margin: "0 0 0 2rem"}}>
       {
         Object.entries(childTags).map(([ tag, data ]) => {
           return <HierarchicalOperationTag
