@@ -1,3 +1,6 @@
+import { HierarchicalOperations } from "./HierarchicalOperations";
+import { HierarchicalOperationTag } from "./HierarchicalOperationTag";
+
 // From: https://raw.githubusercontent.com/chilts/umd-template/master/template.js
 ; ((f) => {
   // module name and requires
@@ -32,16 +35,21 @@
 
 })(() => {
   // Module source
-  return (system) => {
+  return (/*system*/) => {
     return {
+      components: {
+        // Provide our classes raw for others
+        HierarchicalOperations,
+        HierarchicalOperationTag,
+      },
       wrapComponents: {
-        OperationTag: (Original, system) => props => {
-          return <div>
-            <h3>Testing!</h3>
-            <Original {...props} />
-          </div>
+        operations: (Original, system) => props => {
+          return <HierarchicalOperations {...props} />
         }
       }
     }
   };
 });
+
+
+

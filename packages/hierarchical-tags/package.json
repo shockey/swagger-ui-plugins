@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "npx http-server example/",
-    "build": "npx babel src -d build && cp build/index.js example/plugin.js",
+    "build": "./scripts/build.sh",
     "prepublishOnly": "npm run build",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
@@ -28,8 +28,27 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
-    "@babel/preset-react": "^7.12.13"
+    "@babel/core": "^7.13.8",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-react-constant-elements": "^7.12.13",
+    "@babel/plugin-transform-react-inline-elements": "^7.12.13",
+    "@babel/plugin-transform-runtime": "^7.13.9",
+    "@babel/preset-env": "^7.13.9",
+    "@babel/preset-react": "^7.12.13",
+    "@babel/runtime": "^7.13.9",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "@braintree/sanitize-url": "^5.0.0",
+    "css.escape": "^1.5.1",
+    "immutable": "^3.x.x",
+    "prop-types": "^15.7.2",
+    "react": "=15.7.0",
+    "react-immutable-proptypes": "^2.2.0"
   }
 }

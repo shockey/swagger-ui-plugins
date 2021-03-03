@@ -17,7 +17,7 @@
   "basePath": "/v2",
   "tags": [
     {
-      "name": "Pet",
+      "name": "Pets",
       "description": "Everything about your Pets",
       "externalDocs": {
         "description": "Find out more",
@@ -25,32 +25,61 @@
       }
     },
     {
-      "name": "Pet|Get",
+      "name": "Pets|View",
       "description": "Endpoints for getting information about pets"
     },
     {
-      "name": "Pet|Create",
+      "name": "Pets|Create",
       "description": "Endpoints for adding pets to the directory"
     },
     {
-      "name": "Pet|Update",
+      "name": "Pets|Update",
       "description": "Endpoints for updating pet information"
     },
     {
-      "name": "Pet|Delete",
+      "name": "Pets|Delete",
       "description": "Endpoints for deleting pets from the directory"
     },
     {
-      "name": "store",
-      "description": "Access to Petstore orders"
+      "name": "Store",
+      "description": "Get information about the store"
     },
     {
-      "name": "user",
+      "name": "Store|Orders",
+      "description": "Endpoints for managing orders in the store"
+    },
+    {
+      "name": "Store|Orders|Create"
+    },
+    {
+      "name": "Store|Orders|View"
+    },
+    {
+      "name": "Store|Orders|Delete"
+    },
+    {
+      "name": "Store|Inventory",
+      "description": "Endpoints for managing store inventory"
+    },
+    {
+      "name": "Users",
       "description": "Operations about user",
       "externalDocs": {
         "description": "Find out more about our store",
         "url": "http://swagger.io"
       }
+    },
+    {
+      "name": "Users|Create"
+    },
+    {
+      "name": "Users|View"
+    },
+    {
+      "name": "Users|Update"
+    },
+    {
+      "name": "Users|Delete"
     }
   ],
   "schemes": [
@@ -61,7 +90,7 @@
     "/pet/{petId}/uploadImage": {
       "post": {
         "tags": [
-          "pet"
+          "Pets|Update"
         ],
         "summary": "uploads an image",
         "description": "",
@@ -117,7 +146,7 @@
     "/pet": {
       "post": {
         "tags": [
-          "pet"
+          "Pets|Create"
         ],
         "summary": "Add a new pet to the store",
         "description": "",
@@ -157,7 +186,7 @@
       },
       "put": {
         "tags": [
-          "pet"
+          "Pets|Update"
         ],
         "summary": "Update an existing pet",
         "description": "",
@@ -205,7 +234,7 @@
     "/pet/findByStatus": {
       "get": {
         "tags": [
-          "pet"
+          "Pets|View"
         ],
         "summary": "Finds Pets by status",
         "description": "Multiple status values can be provided with comma separated strings",
@@ -260,7 +289,7 @@
     "/pet/findByTags": {
       "get": {
         "tags": [
-          "pet"
+          "Pets|View"
         ],
         "summary": "Finds Pets by tags",
         "description": "Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.",
@@ -310,7 +339,7 @@
     "/pet/{petId}": {
       "get": {
         "tags": [
-          "pet"
+          "Pets|View"
         ],
         "summary": "Find pet by ID",
         "description": "Returns a single pet",
@@ -351,7 +380,7 @@
       },
       "post": {
         "tags": [
-          "pet"
+          "Pets|Create"
         ],
         "summary": "Updates a pet in the store with form data",
         "description": "",
@@ -403,7 +432,7 @@
       },
       "delete": {
         "tags": [
-          "pet"
+          "Pets|Delete"
         ],
         "summary": "Deletes a pet",
         "description": "",
@@ -449,7 +478,7 @@
     "/store/order": {
       "post": {
         "tags": [
-          "store"
+          "Store|Orders|Create"
         ],
         "summary": "Place an order for a pet",
         "description": "",
@@ -488,7 +517,7 @@
     "/store/order/{orderId}": {
       "get": {
         "tags": [
-          "store"
+          "Store|Orders|View"
         ],
         "summary": "Find purchase order by ID",
         "description": "For valid response try integer IDs with value >= 1 and <= 10. Other values will generated exceptions",
@@ -526,7 +555,7 @@
       },
       "delete": {
         "tags": [
-          "store"
+          "Store|Orders|Delete"
         ],
         "summary": "Delete purchase order by ID",
         "description": "For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors",
@@ -559,7 +588,7 @@
     "/store/inventory": {
       "get": {
         "tags": [
-          "store"
+          "Store|Inventory|View"
         ],
         "summary": "Returns pet inventories by status",
         "description": "Returns a map of status codes to quantities",
@@ -590,7 +619,7 @@
     "/user/createWithArray": {
       "post": {
         "tags": [
-          "user"
+          "Users|Create"
         ],
         "summary": "Creates list of users with given input array",
         "description": "",
@@ -626,7 +655,7 @@
     "/user/createWithList": {
       "post": {
         "tags": [
-          "user"
+          "Users|Create"
         ],
         "summary": "Creates list of users with given input array",
         "description": "",
@@ -662,7 +691,7 @@
     "/user/{username}": {
       "get": {
         "tags": [
-          "user"
+          "Users|View"
         ],
         "summary": "Get user by user name",
         "description": "",
@@ -697,7 +726,7 @@
       },
       "put": {
         "tags": [
-          "user"
+          "Users|Update"
         ],
         "summary": "Updated user",
         "description": "This can only be done by the logged in user.",
@@ -738,7 +767,7 @@
       },
       "delete": {
         "tags": [
-          "user"
+          "Users|Delete"
         ],
         "summary": "Delete user",
         "description": "This can only be done by the logged in user.",
@@ -769,7 +798,7 @@
     "/user/login": {
       "get": {
         "tags": [
-          "user"
+          "Users"
         ],
         "summary": "Logs user into the system",
         "description": "",
@@ -822,7 +851,7 @@
     "/user/logout": {
       "get": {
         "tags": [
-          "user"
+          "Users"
         ],
         "summary": "Logs out current logged in user session",
         "description": "",
@@ -842,7 +871,7 @@
     "/user": {
       "post": {
         "tags": [
-          "user"
+          "Users|Create"
         ],
         "summary": "Create user",
         "description": "This can only be done by the logged in user.",
