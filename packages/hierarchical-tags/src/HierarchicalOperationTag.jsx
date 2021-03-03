@@ -2,15 +2,13 @@ import React from "react"
 import PropTypes from "prop-types"
 import ImPropTypes from "react-immutable-proptypes"
 import Im from "immutable"
-import {
-  buildUrl,
-  isFunc,
-  createDeepLinkPath,
-  escapeDeepLinkPath,
-  sanitizeUrl,
-  SWAGGER2_OPERATION_METHODS,
-  OAS3_OPERATION_METHODS,
-} from "./Utils"
+import { buildUrl, isFunc, createDeepLinkPath, escapeDeepLinkPath, sanitizeUrl } from "./Utils"
+
+const SWAGGER2_OPERATION_METHODS = [
+  "get", "put", "post", "delete", "options", "head", "patch"
+]
+
+const OAS3_OPERATION_METHODS = SWAGGER2_OPERATION_METHODS.concat(["trace"])
 
 export class HierarchicalOperationTag extends React.Component {
 
@@ -81,13 +79,13 @@ export class HierarchicalOperationTag extends React.Component {
     // Set up some helpers
     const isDeepLinkingEnabled = deepLinking && deepLinking !== "false"
 
-    const tagDescription = tagObj.getIn(["tagDetails", "description"], null)
-    const tagExternalDocsDescription = tagObj.getIn(["tagDetails", "externalDocs", "description"])
-    const rawTagExternalDocsUrl = tagObj.getIn(["tagDetails", "externalDocs", "url"])
+    const tagDescription = tagObj ? tagObj.getIn(["tagDetails", "description"], null) : null;
+    const tagExternalDocsDescription = tagObj ? tagObj.getIn(["tagDetails", "externalDocs", "description"]) : null;
+    const rawTagExternalDocsUrl = tagObj ? tagObj.getIn(["tagDetails", "externalDocs", "url"]) : null;
     const tagExternalDocsUrl = (isFunc(oas3Selectors) && isFunc(oas3Selectors.selectedServer))
       ? buildUrl(rawTagExternalDocsUrl, specUrl, { selectedServer: oas3Selectors.selectedServer() })
       : rawTagExternalDocsUrl;
-    const operations = tagObj.get("operations");
+    const operations = tagObj ? tagObj.get("operations") : Im.fromJS({});
 
     const isShownKey = ["operations-tag", tag]
     const showTag = layoutSelectors.isShown(isShownKey, docExpansion === "full" || docExpansion === "list")
@@ -193,7 +191,7 @@ export class HierarchicalOperationTag extends React.Component {
       {
         Object.entries(childTags).map(([ tag, data ]) => {
           return <HierarchicalOperationTag
-            key={"operation-" + (data.data.get("canonicalTagName") || tag)}
+            key={"operation-" + ((data.data && data.data.get("canonicalTagName")) || tag)}
             tagObj={data.data}
             tag={tag}
             specSelectors={specSelectors}

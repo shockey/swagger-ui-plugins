@@ -1,10 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Im from "immutable"
-import {
-    SWAGGER2_OPERATION_METHODS,
-    OAS3_OPERATION_METHODS,
-} from "./Utils";
 
 /**
  * This is a direct copy of [this file](https://github.com/swagger-api/swagger-ui/blob/d3a65060628b79729445bc155f6d96a1ed1cd426/src/core/components/operations.jsx),

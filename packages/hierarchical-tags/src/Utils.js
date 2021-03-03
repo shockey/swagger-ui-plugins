@@ -50,12 +50,3 @@ export function sanitizeUrl(url) {
   return braintreeSanitizeUrl(url)
 }
 
-/**
- * These constants are from the original Operations.jsx file
- */
-
-export const SWAGGER2_OPERATION_METHODS = [
-  "get", "put", "post", "delete", "options", "head", "patch"
-]
-
-export const OAS3_OPERATION_METHODS = SWAGGER2_OPERATION_METHODS.concat(["trace"])

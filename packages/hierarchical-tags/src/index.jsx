@@ -41,12 +41,8 @@ import { HierarchicalOperationTag } from "./HierarchicalOperationTag";
         // Provide our classes raw for others
         HierarchicalOperations,
         HierarchicalOperationTag,
+        operations: HierarchicalOperations,
       },
-      wrapComponents: {
-        operations: (Original, system) => props => {
-          return <HierarchicalOperations {...props} />
-        }
-      }
     }
   };
 });
