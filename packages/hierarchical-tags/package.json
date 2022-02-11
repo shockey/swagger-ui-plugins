@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Display endpoints grouped into a hierarchy based on delimited tag names",
   "author": "Kael Shipman<kael.shipman@gmail.com>",
-  "homepage": "https://github.com/shockey/swagger-ui-plugins#readme",
+  "homepage": "https://github.com/kael-shipman/swagger-ui-plugins/tree/hierarchical-tags",
   "license": "MIT",
   "main": "build/index.js",
   "directories": {
@@ -11,7 +11,8 @@
     "test": "__tests__"
   },
   "files": [
-    "build"
+    "build",
+    "example/pet-store.json"
   ],
   "repository": {
     "type": "git",
@@ -20,7 +21,7 @@
   "scripts": {
     "start": "npx http-server example/",
     "build": "./scripts/build.sh",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "npm run build -- --env production",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {

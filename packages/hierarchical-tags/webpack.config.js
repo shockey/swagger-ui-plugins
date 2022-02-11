@@ -4,7 +4,7 @@ module.exports = {
   entry: "./src/index.jsx",
   output: {
     path: path.resolve(__dirname, "build"),
-    filename: "swagger-ui-hierarchical-tags-plugin.[contenthash:8].js",
+    filename: "index.js",
   },
   module: {
     rules: [

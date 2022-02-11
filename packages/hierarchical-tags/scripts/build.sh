@@ -4,6 +4,10 @@ set -e
 
 env=development
 
+# For newer version of node, we need the --openssl-legacy-provider option in order to compile. We're
+# adding that here, but only if the user has not already specified a NODE_OPTIONS value
+export NODE_OPTIONS="$([ -n "$NODE_OPTIONS" ] && echo "$NODE_OPTIONS" || echo "--openssl-legacy-provider")"
+
 while [ "$#" -gt 0 ]; do
   case "$1" in
     -e|--env) env="$2"; shift 2;;
@@ -11,10 +15,12 @@ while [ "$#" -gt 0 ]; do
   esac
 done
 
+# Clean up old artifacts
 rm -Rf build/*
+
+# Build new artifacts
 npx webpack --env "$env" --mode "$env"
-rm example/swagger-ui-*.js &>/dev/null || true
-cp -f build/swagger-ui*.js example/
-cd example
-ln -snf swagger-ui*.js plugin.js
+
+# Copy new artifacts as needed
+cp -f build/index.js example/plugin.js
 
