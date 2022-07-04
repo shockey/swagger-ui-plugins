@@ -87,11 +87,17 @@ export class HierarchicalOperations extends React.Component {
       let current = tagHierarchy;
       for (let i = 0; i < parts.length; i++) {
         const part = parts[i];
+        // if hierarchical structure not exists create it and add cursor for child tags
         if (current[part] === undefined) {
           current[part] = {
-            data: (i === parts.length - 1) ? data : null,
+            data: null,
             childTags: {}
           }
+        }
+
+        //if point of insert reached add operations and tag information to structure
+        if (i === parts.length - 1) {
+          current[part].data = data;
         }
         current = current[part].childTags;
       }
