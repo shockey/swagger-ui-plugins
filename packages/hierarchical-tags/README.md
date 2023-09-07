@@ -62,3 +62,14 @@ html document that you can use as a starting point:
 </html> 
 ```
 
+### Installing Locally Via NPM
+
+Install as you would any other package: `npm i --save swagger-ui-plugins-hierarchical-tags`
+
+
+## Hierarchical Tags Plugin Options
+
+There are no additional options for this plugin. If the plugin is included on initialization, then
+it is enabled and will split tags on any colon (`:`) or pipe (`|`) character.
+
+
