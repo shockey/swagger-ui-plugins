@@ -1,6 +1,6 @@
 {
   "name": "swagger-ui-plugin-hierarchical-tags",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Display endpoints grouped into a hierarchy based on delimited tag names",
   "author": "Kael Shipman<kael.shipman@gmail.com>",
   "homepage": "https://github.com/kael-shipman/swagger-ui-plugins/tree/hierarchical-tags",

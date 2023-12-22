@@ -53,7 +53,6 @@ export class HierarchicalOperationTag extends React.Component {
       tagObj,
       tag,
       childTags,
-      children,
       oas3Selectors,
       layoutSelectors,
       layoutActions,
@@ -86,8 +85,9 @@ export class HierarchicalOperationTag extends React.Component {
       ? buildUrl(rawTagExternalDocsUrl, specUrl, { selectedServer: oas3Selectors.selectedServer() })
       : rawTagExternalDocsUrl;
     const operations = tagObj ? tagObj.get("operations") : Im.fromJS({});
+    const canonicalTagName = tagObj && tagObj.get("canonicalTagName") || tag;
 
-    const isShownKey = ["operations-tag", tag]
+    const isShownKey = ["operations-tag", canonicalTagName]
     const showTag = layoutSelectors.isShown(isShownKey, docExpansion === "full" || docExpansion === "list")
 
     return (
@@ -96,7 +96,7 @@ export class HierarchicalOperationTag extends React.Component {
           onClick={() => layoutActions.show(isShownKey, !showTag)}
           className={!tagDescription ? "opblock-tag no-desc" : "opblock-tag" }
           id={isShownKey.map(v => escapeDeepLinkPath(v)).join("-")}
-          data-tag={tag}
+          data-tag={canonicalTagName}
           data-is-open={showTag}
         >
           <DeepLink
@@ -188,7 +188,15 @@ export class HierarchicalOperationTag extends React.Component {
     } = this.props;
 
     return (
-      <div className="hierarchical-operation-tags" style={isRoot ? null : {margin: "0 0 0 2rem"}}>
+      <div className="hierarchical-operation-tags" style={
+        isRoot
+          ? null
+          : {
+            margin: "0 0 0 1.2rem",
+            paddingLeft: "0.8rem",
+            borderLeft: "1px solid #ccc"
+          }
+      }>
       {
         Object.entries(childTags).map(([ tag, data ]) => {
           return <HierarchicalOperationTag

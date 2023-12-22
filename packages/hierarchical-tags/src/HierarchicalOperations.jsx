@@ -37,13 +37,17 @@ export class HierarchicalOperations extends React.Component {
     // Get a flat map of tags to their set of operations
     let taggedOps = specSelectors.taggedOperations()
 
-    // Get the necessary components
-    const OperationContainer = getComponent("OperationContainer", true)
+    // Get the component we need
     const HierarchicalOperationTag = getComponent("HierarchicalOperationTag")
 
     let {
       maxDisplayedTags,
+      hierarchicalTagSeparator,
     } = getConfigs()
+
+    if (!hierarchicalTagSeparator) {
+      hierarchicalTagSeparator = /[:|]/
+    }
 
     let filter = layoutSelectors.currentFilter()
 
@@ -61,16 +65,18 @@ export class HierarchicalOperations extends React.Component {
      * Each taggedOperation is a tag with information and then some operations. All we need
      * to do is restructure this so that it reflects a hierarchical list instead of a flat
      * one.
+     * 
+     * Existing structure:
      *
-     * typeof taggedOps = Map<TagName: string, TagObj>;
-     * TagObj = ?
+     * type TagObj = unknown;
+     * type TaggedOps = Map<TagName: string, TagObj>;
      *
      * Need to transform into:
      *
      * type HierarchicalOperationTag = {
      *   [TagName]: {
      *     data: TagObj & { canonicalTagName: string };
-     *     childrTags: Array<HierarchicalOperationTag>;
+     *     childTags: Array<HierarchicalOperationTag>;
      *   }
      * }
      *
@@ -80,10 +86,10 @@ export class HierarchicalOperations extends React.Component {
     taggedOps.map((data, tag) => {
       // Fill in canonicalTagName, if necessary
       if (!data.has("canonicalTagName")) {
-        data.set("canonicalTagName", tag);
+        data = data.set("canonicalTagName", tag.replace(hierarchicalTagSeparator, "_"));
       }
 
-      const parts = tag.split(/[:|]/);
+      const parts = tag.split(hierarchicalTagSeparator);
       let current = tagHierarchy;
       for (let i = 0; i < parts.length; i++) {
         const part = parts[i];
@@ -95,7 +101,7 @@ export class HierarchicalOperations extends React.Component {
           }
         }
 
-        //if point of insert reached add operations and tag information to structure
+        // if point of insert reached add operations and tag information to structure
         if (i === parts.length - 1) {
           current[part].data = data;
         }
