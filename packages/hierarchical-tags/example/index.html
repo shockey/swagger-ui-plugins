@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- Load Swagger UI -->
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css"></link>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script> 
+    <script src="./plugin.js"></script>
+    <script>
+      window.onload = function() {
+        window.ui = SwaggerUIBundle({
+          url: "/pet-store.json",
+          dom_id: "#swagger-ui",
+          presets: [
+            SwaggerUIBundle.presets.apis,
+            SwaggerUIBundle.SwaggerUIStandalonePreset
+          ],
+          plugins: [
+            HierarchicalTagsPlugin
+          ],
+
+          //
+          // Hierarchical tags config
+          //
+
+          // (Optional)
+          hierarchicalTagSeparator: '|',
+        });
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="swagger-ui"></div>
+  </body>
+</html>
